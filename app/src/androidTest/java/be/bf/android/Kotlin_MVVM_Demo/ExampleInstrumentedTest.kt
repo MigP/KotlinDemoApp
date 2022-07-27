@@ -1,4 +1,4 @@
-package be.bf.android.kotlindemoapp
+package be.bf.android.Kotlin_MVVM_Demo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

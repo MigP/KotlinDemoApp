@@ -1,19 +1,14 @@
-package be.bf.android.kotlindemoapp
+package be.bf.android.Kotlin_MVVM_Demo
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
-import be.bf.android.kotlindemoapp.databinding.ActivityMainBinding
-import kotlin.reflect.KClass
-
+import be.bf.android.Kotlin_MVVM_Demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        const val TAG = "MainActivity"
-    }
+
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
 
@@ -23,12 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.count.observe(this) {
-            Log.d(TAG, "onCreate: $it")
-            binding.helloWorld.text = "${binding.helloWorld.text} + $it"
+            binding.helloWorld.text = it.toString()
         }
 
         binding.inc.setOnClickListener { viewModel.inc() }
-
         binding.redirect.setOnClickListener(this::toCounterActivity)
     }
 
